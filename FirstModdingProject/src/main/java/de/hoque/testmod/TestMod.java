@@ -42,7 +42,7 @@ public class TestMod
    {
 	  IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-	  // Register the commonSetup method for modloading
+	  // Register the commonSetup method for modloading ja opfer
 	  modEventBus.addListener(this::commonSetup);
 
 	  // Register ourselves for server and other game events we are interested
