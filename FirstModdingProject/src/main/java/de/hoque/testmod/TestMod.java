@@ -2,6 +2,8 @@ package de.hoque.testmod;
 
 import com.mojang.logging.LogUtils;
 
+import de.hoque.testmod.block.ModBlocks;
+import de.hoque.testmod.item.ModCreativeModTabs;
 import de.hoque.testmod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -44,7 +46,10 @@ public class TestMod
    {
 	  IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+	  ModCreativeModTabs.register(modEventBus);
+	  
 	  ModItems.register(modEventBus);
+	  ModBlocks.register(modEventBus);
 	  
 	  // Register the commonSetup method for modloading ja opfer
 	  modEventBus.addListener(this::commonSetup);
@@ -73,6 +78,7 @@ public class TestMod
 	  if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
 	  {
 		 event.accept(ModItems.PLATE);
+		 event.accept(ModItems.SCREW_BOX);
 	  }
    }
 

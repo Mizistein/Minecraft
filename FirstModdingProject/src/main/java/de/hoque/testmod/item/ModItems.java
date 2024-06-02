@@ -12,6 +12,7 @@ public class ModItems
    public static final DeferredRegister<Item> ITEMS	= DeferredRegister.create(ForgeRegistries.ITEMS, TestMod.MODID);
 
    public static final RegistryObject<Item>	  PLATE	= ITEMS.register("plate", () -> new Item(new Item.Properties()));
+   public static final RegistryObject<Item>	  SCREW_BOX	= ITEMS.register("screw_box", () -> new Item(new Item.Properties()));
 
    public static void register(IEventBus eventBus)
    {

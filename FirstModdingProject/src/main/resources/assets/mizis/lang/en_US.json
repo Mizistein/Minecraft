@@ -1,3 +1,8 @@
 {
-	"item.mizis.plate": "Plate"
+	"item.mizis.plate": "Plate",
+	"item.mizis.screw_box": "Screw box",
+	
+	"block.mizis.plate_block": "Plate Block",
+	
+	"creativetab.test_tab": "Mizisteins first Tab"
 }
