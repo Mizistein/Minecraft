@@ -1,10 +1,12 @@
 {
 	"item.mizis.plate": "Plate",
-	"item.mizis.screw_box": "Screw box",
+	"item.mizis.screw_box": "Screw Box",
+	"item.mizis.bauxite_chunk": "Bauxite Chunk",
 	
 	"block.mizis.plate_block": "Plate Block",
 	"block.mizis.plate_block_corroded": "Corroded Plate Block",
 	"block.mizis.bauxite_ore": "Bauxite Ore",
+	"block.mizis.ghandi_block": "Ghandi Block",
 	
 	"creativetab.test_tab": "Industry Baby"
 }
