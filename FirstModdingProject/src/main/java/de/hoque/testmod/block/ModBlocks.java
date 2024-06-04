@@ -26,6 +26,10 @@ public class ModBlocks
    public static final RegistryObject<Block> PLATE_BLOCK_CORRODED = registerBlock("plate_block_corroded", 
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.METAL)));
 
+   public static final RegistryObject<Block> BAUXITE_ORE = registerBlock("bauxite_ore", 
+			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).sound(SoundType.STONE)));
+   
+   
    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block)
    {
 	  RegistryObject<T> toReturn = BLOCKS.register(name, block);

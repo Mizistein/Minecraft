@@ -22,6 +22,9 @@ public class ModCreativeModTabs
 			   pOutput.accept(ModItems.PLATE.get());
 			   pOutput.accept(ModItems.SCREW_BOX.get());
 			   
+			   
+			   
+			   pOutput.accept(ModBlocks.BAUXITE_ORE.get());
 			   pOutput.accept(ModBlocks.PLATE_BLOCK.get());
 			   pOutput.accept(ModBlocks.PLATE_BLOCK_CORRODED.get());
 			})

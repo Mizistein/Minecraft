@@ -3,7 +3,8 @@
 	"item.mizis.screw_box": "Screw box",
 	
 	"block.mizis.plate_block": "Plate Block",
-	"block.mizis.plate_block_corroded": "Corroded Plate Block ",
+	"block.mizis.plate_block_corroded": "Corroded Plate Block",
+	"block.mizis.bauxite_ore": "Bauxite Ore",
 	
-	"creativetab.test_tab": "Mizisteins first Tab"
+	"creativetab.test_tab": "Industry Baby"
 }
