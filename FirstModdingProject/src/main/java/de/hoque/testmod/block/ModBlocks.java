@@ -21,10 +21,10 @@ public class ModBlocks
    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TestMod.MODID);
    
    public static final RegistryObject<Block> PLATE_BLOCK = registerBlock("plate_block", 
-			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.METAL)));
+			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
    
    public static final RegistryObject<Block> PLATE_BLOCK_CORRODED = registerBlock("plate_block_corroded", 
-			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.METAL)));
+			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
    public static final RegistryObject<Block> BAUXITE_ORE = registerBlock("bauxite_ore", 
 			() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).sound(SoundType.STONE)));
