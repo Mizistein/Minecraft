@@ -20,15 +20,17 @@ public class ModCreativeModTabs
 			.title(Component.translatable("creativetab.test_tab"))
 			.displayItems((pParameters, pOutput) -> {
 			   pOutput.accept(ModItems.PLATE.get());
-			   pOutput.accept(ModItems.SCREW_BOX.get());
-			   pOutput.accept(ModItems.BAUXITE_CHUNK.get());
-			   
-			   
-			   
-			   pOutput.accept(ModBlocks.GHANDI_BLOCK.get());
-			   pOutput.accept(ModBlocks.BAUXITE_ORE.get());
 			   pOutput.accept(ModBlocks.PLATE_BLOCK.get());
 			   pOutput.accept(ModBlocks.PLATE_BLOCK_CORRODED.get());
+			   pOutput.accept(ModItems.SCREW_BOX.get());
+			   
+			   pOutput.accept(ModItems.BAUXITE_CHUNK.get());
+			   pOutput.accept(ModBlocks.BAUXITE_ORE.get());
+
+			   
+			   
+			   pOutput.accept(ModItems.METAL_DETECTOR.get());
+			   pOutput.accept(ModBlocks.GHANDI_BLOCK.get());
 			})
 			.build());
 

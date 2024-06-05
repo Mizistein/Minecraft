@@ -1,6 +1,8 @@
 package de.hoque.testmod.item;
 
 import de.hoque.testmod.TestMod;
+import de.hoque.testmod.item.custom.GhandiHuakbarItem;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -11,9 +13,11 @@ public class ModItems
 {
    public static final DeferredRegister<Item> ITEMS	= DeferredRegister.create(ForgeRegistries.ITEMS, TestMod.MODID);
 
-   public static final RegistryObject<Item>	  PLATE			= ITEMS.register("plate", () -> new Item(new Item.Properties()));
-   public static final RegistryObject<Item>	  SCREW_BOX		= ITEMS.register("screw_box", () -> new Item(new Item.Properties()));
-   public static final RegistryObject<Item>	  BAUXITE_CHUNK	= ITEMS.register("bauxite_chunk", () -> new Item(new Item.Properties()));
+   public static final RegistryObject<Item>	  PLATE			 = ITEMS.register("plate", () -> new Item(new Item.Properties()));
+   public static final RegistryObject<Item>	  SCREW_BOX		 = ITEMS.register("screw_box", () -> new Item(new Item.Properties()));
+   public static final RegistryObject<Item>	  BAUXITE_CHUNK	 = ITEMS.register("bauxite_chunk", () -> new Item(new Item.Properties()));
+
+   public static final RegistryObject<Item>	  METAL_DETECTOR =  ITEMS.register("metal_detector", () -> new GhandiHuakbarItem(new Item.Properties().durability(100)));
 
    public static void register(IEventBus eventBus)
    {

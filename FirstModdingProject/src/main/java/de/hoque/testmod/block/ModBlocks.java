@@ -3,6 +3,7 @@ package de.hoque.testmod.block;
 import java.util.function.Supplier;
 
 import de.hoque.testmod.TestMod;
+import de.hoque.testmod.block.custom.GhandalfBlock;
 import de.hoque.testmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -32,8 +33,9 @@ public class ModBlocks
 			() -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
 					 .strength(2.0F, 6.0F), UniformInt.of(3, 6)));
    
+   
    public static final RegistryObject<Block> GHANDI_BLOCK = registerBlock("ghandi_block", 
-			() -> new Block(BlockBehaviour.Properties.copy(Blocks.TNT)));
+			() -> new GhandalfBlock(BlockBehaviour.Properties.copy(Blocks.TNT)));
    
    
    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block)
