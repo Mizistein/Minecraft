@@ -1,4 +1,8 @@
-// 1.20.1	2024-06-06T16:39:54.0332838	Block States: mizis
+// 1.20.1	2024-06-06T16:54:39.0205722	Block States: mizis
+badd4a15efe6afcdd5b2de5ed98d27eff174c0d2 assets/mizis/blockstates/bauxite_ore.json
+f9e4ea17d80a966e96c1e18d0b4b07bd56ae5c04 assets/mizis/blockstates/ghandi_block.json
+733b3509eba883cdaa25a1eaadc6c05ac0ff3d89 assets/mizis/blockstates/plate_block.json
+a2f24930fcb9ba5ce2b38c98b5b1690764ca06c3 assets/mizis/blockstates/plate_block_corroded.json
 bb6c7db80c2425e224ecb9e7ac918b57ddbf5fe0 assets/mizis/models/block/bauxite_ore.json
 05606ed3686dbc66f375b1176594aaa394e5854e assets/mizis/models/block/ghandi_block.json
 a198823948ead84d6d9eb77e04193e93d2918a33 assets/mizis/models/block/plate_block.json

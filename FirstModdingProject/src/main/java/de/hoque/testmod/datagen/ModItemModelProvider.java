@@ -26,14 +26,15 @@ public class ModItemModelProvider extends ItemModelProvider
 	  simpleItem(ModItems.JADSCHE_POWDER);
 	  simpleItem(ModItems.METAL_DETECTOR);
 	  simpleItem(ModItems.SCREW_BOX);
+	  simpleItem(ModItems.PLATE);
+	  
 	  
    }
    
-   private ItemModelBuilder simpleItem(RegistryObject<Item> pItem)
+   private ItemModelBuilder simpleItem(RegistryObject<Item> item)
    {
-	  return withExistingParent(pItem.getId().getPath(), 
-			   new ResourceLocation("item/generated")).texture("layer0", 
-						new ResourceLocation(TestMod.MODID, "item/" + pItem.getId().getPath()));
+	  return withExistingParent(item.getId().getPath(), new ResourceLocation("item/generated"))
+			   .texture("layer0", new ResourceLocation(TestMod.MODID, "item/" + item.getId().getPath()));
    }
 
 }

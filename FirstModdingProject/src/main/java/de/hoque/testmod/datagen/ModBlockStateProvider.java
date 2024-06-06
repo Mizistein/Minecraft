@@ -28,7 +28,7 @@ public class ModBlockStateProvider extends BlockStateProvider
    
    private void blockWithItem(RegistryObject<Block> pRegistryObject)
    {
-	  simpleBlockItem(pRegistryObject.get(), cubeAll(pRegistryObject.get()));
+	  simpleBlockWithItem(pRegistryObject.get(), cubeAll(pRegistryObject.get()));
    }
 
 }
