@@ -37,9 +37,7 @@ import org.slf4j.Logger;
 @Mod(TestMod.MODID)
 public class TestMod
 {
-   // Define mod id in a common place for everything to reference
    public static final String  MODID  = "mizis";
-   // Directly reference a slf4j logger
    private static final Logger LOGGER = LogUtils.getLogger();
 
    public TestMod()
@@ -51,28 +49,20 @@ public class TestMod
 	  ModItems.register(modEventBus);
 	  ModBlocks.register(modEventBus);
 	  
-	  // Register the commonSetup method for modloading ja opfer
 	  modEventBus.addListener(this::commonSetup);
 
-	  // Register ourselves for server and other game events we are interested
-	  // in
 	  MinecraftForge.EVENT_BUS.register(this);
 
-	  // Register the item to a creative tab
 	  modEventBus.addListener(this::addCreative);
 
-	  // Register our mod's ForgeConfigSpec so that Forge can create and load
-	  // the config file for us
 	  ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
    }
 
    private void commonSetup(final FMLCommonSetupEvent event)
    {
-	  // Some common setup code
 
    }
 
-   // Add the example block item to the building blocks tab
    private void addCreative(BuildCreativeModeTabContentsEvent event)
    {
 	  if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) //example
@@ -82,23 +72,18 @@ public class TestMod
 	  }
    }
 
-   // You can use SubscribeEvent and let the Event Bus discover methods to call
    @SubscribeEvent
    public void onServerStarting(ServerStartingEvent event)
    {
-	  // Do something when the server starts
-	  LOGGER.info("HELLO from server starting");
+	  LOGGER.info("DO SMTH AT SERVER START");
    }
 
-   // You can use EventBusSubscriber to automatically register all static
-   // methods in the class annotated with @SubscribeEvent
    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
    public static class ClientModEvents
    {
 	  @SubscribeEvent
 	  public static void onClientSetup(FMLClientSetupEvent event)
 	  {
-		 // Some client setup code
 		 LOGGER.info("HELLO FROM CLIENT SETUP");
 		 LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 	  }
