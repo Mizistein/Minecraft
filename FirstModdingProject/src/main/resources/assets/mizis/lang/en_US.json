@@ -3,11 +3,15 @@
 	"item.mizis.screw_box": "Screw Box",
 	"item.mizis.bauxite_chunk": "Bauxite Chunk",
 	"item.mizis.metal_detector": "Metal Detector",
+	"item.mizis.date": "Date",
+	"item.mizis.jadsche_powder": "Jad'sche Powder",
 	
 	"block.mizis.plate_block": "Plate Block",
 	"block.mizis.plate_block_corroded": "Corroded Plate Block",
 	"block.mizis.bauxite_ore": "Bauxite Ore",
 	"block.mizis.ghandi_block": "Ghandi Block",
 	
-	"creativetab.test_tab": "Industry Baby"
+	"creativetab.test_tab": "Industry Baby",
+	
+	"tooltip.mizis.ghandihuakbaritem.tooltip": "Money finder hack"
 }

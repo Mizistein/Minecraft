@@ -31,6 +31,10 @@ public class ModCreativeModTabs
 			   
 			   pOutput.accept(ModItems.METAL_DETECTOR.get());
 			   pOutput.accept(ModBlocks.GHANDI_BLOCK.get());
+
+			   
+			   pOutput.accept(ModItems.DATE.get());
+			   pOutput.accept(ModItems.JADSCHE_POWDER.get());
 			})
 			.build());
 
