@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    },
+    {
+      "item": "mizis:plate"
+    }
+  ],
+  "result": {
+    "item": "mizis:plate_block"
+  }
+}

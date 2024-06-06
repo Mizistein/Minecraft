@@ -1,0 +1,4 @@
+// 1.20.1	2024-06-06T16:39:54.0339939	Tags for minecraft:block mod id mizis
+89561539b93f07a1598249778f3d04d85f7ee8ac data/minecraft/tags/blocks/mineable/pickaxe.json
+89561539b93f07a1598249778f3d04d85f7ee8ac data/minecraft/tags/blocks/needs_iron_tool.json
+0c2f55d12bf41c26b3cd6522deccd97e09c48f7b data/mizis/tags/blocks/metal_detector_valuable.json

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "mizis:bauxite_chunk"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "P": {
+      "item": "mizis:plate"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "mizis:screw_box"
+    }
+  },
+  "pattern": [
+    " G ",
+    "RBW",
+    "PSP"
+  ],
+  "result": {
+    "item": "mizis:metal_detector"
+  },
+  "show_notification": true
+}
