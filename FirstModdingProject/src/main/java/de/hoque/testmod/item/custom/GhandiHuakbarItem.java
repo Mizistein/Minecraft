@@ -3,6 +3,7 @@ package de.hoque.testmod.item.custom;
 import java.util.List;
 
 import de.hoque.testmod.block.ModBlocks;
+import de.hoque.testmod.util.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -74,16 +75,7 @@ public class GhandiHuakbarItem extends Item
 
    private boolean isValuableBlock(BlockState pBlockState)
    {
-	  return pBlockState.is(Blocks.IRON_ORE) || pBlockState.is(Blocks.DIAMOND_ORE);
+	  return pBlockState.is(ModTags.Blocks.METAL_DETECTOR_VALUABLE);
    }
-   
-   
-   
-   
-   
-   
-   
-   
-   
 
 }
