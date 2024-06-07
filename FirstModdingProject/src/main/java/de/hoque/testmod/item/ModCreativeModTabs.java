@@ -35,6 +35,8 @@ public class ModCreativeModTabs
 			   
 			   pOutput.accept(ModItems.DATE.get());
 			   pOutput.accept(ModItems.JADSCHE_POWDER.get());
+			   pOutput.accept(ModItems.SAPPHIRE_STAFF.get());
+			   
 			})
 			.build());
 

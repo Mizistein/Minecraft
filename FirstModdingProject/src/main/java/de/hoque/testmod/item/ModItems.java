@@ -21,6 +21,8 @@ public class ModItems
    public static final RegistryObject<Item>	  METAL_DETECTOR =  ITEMS.register("metal_detector", () -> new GhandiHuakbarItem(new Item.Properties().durability(100)));
    
    public static final RegistryObject<Item>	  DATE =  ITEMS.register("date", () -> new Item(new Item.Properties().food(ModFoods.DATE)));
+
+   public static final RegistryObject<Item>	  SAPPHIRE_STAFF =  ITEMS.register("sapphire_staff", () -> new Item(new Item.Properties().stacksTo(1)));
    
    public static final RegistryObject<Item>   JADSCHE_POWDER = ITEMS.register("jadsche_powder", () -> new FuelItem(new Item.Properties(), 12000));
 

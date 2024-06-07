@@ -17,8 +17,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
@@ -27,7 +30,7 @@ import net.minecraftforge.common.Tags.EntityTypes;
 import net.minecraftforge.event.level.LevelEvent.CreateSpawnPosition;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
-public class GhandalfBlock extends Block
+public class GhandalfBlock extends TntBlock
 {
 
    public GhandalfBlock(Properties pProperties)
@@ -102,6 +105,7 @@ public class GhandalfBlock extends Block
 	  
       return InteractionResult.SUCCESS;
    }
+   
    
 
 }
