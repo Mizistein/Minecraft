@@ -1,5 +1,6 @@
-// 1.20.1	2024-06-06T16:39:54.0354982	Loot Tables
+// 1.20.1	2024-06-08T22:39:09.7134595	Loot Tables
 a39b3e6f493df999b58319315a64c9f2c95807c9 data/mizis/loot_tables/blocks/bauxite_ore.json
 019a5c3edfa9393b78896b9841d6eb9fb8b9c1f3 data/mizis/loot_tables/blocks/ghandi_block.json
 e4d35aa187dbc967e7701aa507ab1def0f993883 data/mizis/loot_tables/blocks/plate_block.json
 20415dc9e4914fbe3678e87cde2905703f7098e5 data/mizis/loot_tables/blocks/plate_block_corroded.json
+3c9757782c071e4741a4ac91a52c3b563002a5e2 data/mizis/loot_tables/blocks/rolling_mill_station_block.json

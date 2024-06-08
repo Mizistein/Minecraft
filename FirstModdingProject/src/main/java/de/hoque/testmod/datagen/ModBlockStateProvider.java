@@ -5,6 +5,7 @@ import de.hoque.testmod.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -23,6 +24,9 @@ public class ModBlockStateProvider extends BlockStateProvider
 	  blockWithItem(ModBlocks.GHANDI_BLOCK);
 	  blockWithItem(ModBlocks.PLATE_BLOCK);
 	  blockWithItem(ModBlocks.PLATE_BLOCK_CORRODED);
+	  
+	  simpleBlockWithItem(ModBlocks.ROLLING_MILL_STATION_BLOCK.get(), 
+			   new ModelFile.UncheckedModelFile(modLoc("block/rolling_mill_station_block")));
 	  
    }
    

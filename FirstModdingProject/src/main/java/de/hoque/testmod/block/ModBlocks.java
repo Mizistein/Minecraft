@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import de.hoque.testmod.TestMod;
 import de.hoque.testmod.block.custom.GhandalfBlock;
+import de.hoque.testmod.block.custom.RollingMillStationBlock;
 import de.hoque.testmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -36,6 +37,12 @@ public class ModBlocks
    
    public static final RegistryObject<Block> GHANDI_BLOCK = registerBlock("ghandi_block", 
 			() -> new GhandalfBlock(BlockBehaviour.Properties.copy(Blocks.TNT)));
+   
+   public static final RegistryObject<Block> ROLLING_MILL_STATION_BLOCK = registerBlock("rolling_mill_station_block", 
+			() -> new RollingMillStationBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL).sound(SoundType.METAL)));
+   
+   
+   
    
    
    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block)

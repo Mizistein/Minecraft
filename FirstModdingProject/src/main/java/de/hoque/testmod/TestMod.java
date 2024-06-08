@@ -3,9 +3,13 @@ package de.hoque.testmod;
 import com.mojang.logging.LogUtils;
 
 import de.hoque.testmod.block.ModBlocks;
+import de.hoque.testmod.block.entity.ModBlockEntities;
 import de.hoque.testmod.item.ModCreativeModTabs;
 import de.hoque.testmod.item.ModItems;
+import de.hoque.testmod.screen.ModMenuTypes;
+import de.hoque.testmod.screen.RollingMillStationBlockScreen;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -48,6 +52,9 @@ public class TestMod
 	  ModItems.register(modEventBus);
 	  ModBlocks.register(modEventBus);
 	  
+	  ModBlockEntities.register(modEventBus);
+	  ModMenuTypes.register(modEventBus);
+	  
 	  modEventBus.addListener(this::commonSetup);
 
 	  MinecraftForge.EVENT_BUS.register(this);
@@ -83,6 +90,7 @@ public class TestMod
 	  @SubscribeEvent
 	  public static void onClientSetup(FMLClientSetupEvent event)
 	  {
+		 MenuScreens.register(ModMenuTypes.ROLLING_MILL_STATION_BLOCK_MENU.get(), RollingMillStationBlockScreen::new);
 		 LOGGER.info("HELLO FROM CLIENT SETUP");
 		 LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 	  }

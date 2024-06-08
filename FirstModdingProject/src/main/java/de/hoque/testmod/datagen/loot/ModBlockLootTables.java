@@ -31,6 +31,7 @@ public class ModBlockLootTables extends BlockLootSubProvider
 	  this.dropSelf(ModBlocks.GHANDI_BLOCK.get());
 	  this.dropSelf(ModBlocks.PLATE_BLOCK.get());
 	  this.dropSelf(ModBlocks.PLATE_BLOCK_CORRODED.get());
+	  this.dropSelf(ModBlocks.ROLLING_MILL_STATION_BLOCK.get());
 	  
 	  this.add(ModBlocks.BAUXITE_ORE.get(), 
 			   block -> createCopperLikeOreDrops(ModBlocks.BAUXITE_ORE.get(), ModItems.BAUXITE_CHUNK.get()));

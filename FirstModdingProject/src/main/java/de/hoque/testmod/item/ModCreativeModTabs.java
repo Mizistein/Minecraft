@@ -19,6 +19,7 @@ public class ModCreativeModTabs
 			() -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.PLATE.get()))
 			.title(Component.translatable("creativetab.test_tab"))
 			.displayItems((pParameters, pOutput) -> {
+			   pOutput.accept(ModBlocks.ROLLING_MILL_STATION_BLOCK.get());
 			   pOutput.accept(ModItems.PLATE.get());
 			   pOutput.accept(ModBlocks.PLATE_BLOCK.get());
 			   pOutput.accept(ModBlocks.PLATE_BLOCK_CORRODED.get());

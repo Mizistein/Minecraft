@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mizis:block/rolling_mill_station_block"
+    }
+  }
+}
