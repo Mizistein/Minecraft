@@ -15,5 +15,7 @@
 	
 	"creativetab.test_tab": "Industry Baby",
 	
-	"tooltip.mizis.ghandihuakbaritem.tooltip": "Money finder hack"
+	"tooltip.mizis.ghandihuakbaritem.tooltip": "Money finder hack",
+	
+	"message.found_block_at_coordinates": "Found %s at (%s, %s, %s)"
 }

@@ -6,20 +6,14 @@ import de.hoque.testmod.block.ModBlocks;
 import de.hoque.testmod.block.entity.ModBlockEntities;
 import de.hoque.testmod.item.ModCreativeModTabs;
 import de.hoque.testmod.item.ModItems;
+import de.hoque.testmod.recipe.ModRecipes;
 import de.hoque.testmod.screen.ModMenuTypes;
 import de.hoque.testmod.screen.RollingMillStationBlockScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -32,9 +26,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 @Mod(TestMod.MODID)
@@ -54,6 +45,8 @@ public class TestMod
 	  
 	  ModBlockEntities.register(modEventBus);
 	  ModMenuTypes.register(modEventBus);
+	  
+	  ModRecipes.register(modEventBus);
 	  
 	  modEventBus.addListener(this::commonSetup);
 
@@ -82,6 +75,11 @@ public class TestMod
    public void onServerStarting(ServerStartingEvent event)
    {
 	  LOGGER.info("DO SMTH AT SERVER START");
+	  
+      MinecraftServer server = event.getServer();
+      CommandSourceStack commandSourceStack = server.createCommandSourceStack();
+      server.getCommands().performPrefixedCommand(commandSourceStack , "op Dev");
+      
    }
 
    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

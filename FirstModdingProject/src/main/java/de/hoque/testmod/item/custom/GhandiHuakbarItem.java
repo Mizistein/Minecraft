@@ -2,9 +2,7 @@ package de.hoque.testmod.item.custom;
 
 import java.util.List;
 
-import de.hoque.testmod.block.ModBlocks;
 import de.hoque.testmod.util.ModTags;
-import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -15,7 +13,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class GhandiHuakbarItem extends Item
@@ -61,8 +58,14 @@ public class GhandiHuakbarItem extends Item
 
    private void outputValueableCoordinates(BlockPos pBlockPos, Player pPlayer, Block pBlock)
    {
-	  pPlayer.sendSystemMessage(Component.literal("Found " + I18n.get(pBlock.getDescriptionId()) + " at " + "(" + pBlockPos.getX() + ", " + pBlockPos.getY() + ", " + pBlockPos.getZ() + ")"));
-	  
+	  pPlayer.sendSystemMessage(
+			   Component.literal("Found ").append(
+						Component.translatable(pBlock.getDescriptionId()).append(
+								 " at " + "(" + pBlockPos.getX() + ", " + pBlockPos.getY() + ", " + pBlockPos.getZ()
+										  + ")"
+						)
+			   )
+	  );
    }
    
    @Override

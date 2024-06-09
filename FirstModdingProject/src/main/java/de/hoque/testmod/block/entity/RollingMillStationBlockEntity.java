@@ -1,9 +1,12 @@
 package de.hoque.testmod.block.entity;
 
+import java.util.Optional;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import de.hoque.testmod.item.ModItems;
+
+import de.hoque.testmod.recipe.PlateRollingRecipe;
 import de.hoque.testmod.screen.RollingMillStationBlockMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,10 +21,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -31,7 +32,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class RollingMillStationBlockEntity extends BlockEntity implements MenuProvider
 {
-   private final ItemStackHandler handler = new ItemStackHandler(2);
+   private final ItemStackHandler itemHandler = new ItemStackHandler(2);
    
    private static final int INPUT_SLOT = 0;
    private static final int OUTPUT_SLOT = 1;
@@ -91,7 +92,7 @@ public class RollingMillStationBlockEntity extends BlockEntity implements MenuPr
    public void onLoad()
    {
 	  super.onLoad();
-	  lazyOptional = LazyOptional.of(() -> handler);
+	  lazyOptional = LazyOptional.of(() -> itemHandler);
       
    }
    
@@ -110,10 +111,10 @@ public class RollingMillStationBlockEntity extends BlockEntity implements MenuPr
    
    public void drops()
    {
-	  SimpleContainer container = new SimpleContainer(handler.getSlots());
-	  for (int i = 0; i < handler.getSlots(); i++)
+	  SimpleContainer container = new SimpleContainer(itemHandler.getSlots());
+	  for (int i = 0; i < itemHandler.getSlots(); i++)
 	  {
-		 container.setItem(i, handler.getStackInSlot(i));
+		 container.setItem(i, itemHandler.getStackInSlot(i));
 	  }
 	  Containers.dropContents(this.level, this.worldPosition, container);
    }
@@ -127,7 +128,7 @@ public class RollingMillStationBlockEntity extends BlockEntity implements MenuPr
    @Override
    protected void saveAdditional(CompoundTag pTag)
    {
-	  pTag.put("inventory", handler.serializeNBT());
+	  pTag.put("inventory", itemHandler.serializeNBT());
 	  pTag.putInt("rolling_mill_station_block.progress", progress);
 	  
       super.saveAdditional(pTag);
@@ -136,7 +137,7 @@ public class RollingMillStationBlockEntity extends BlockEntity implements MenuPr
    @Override
    public void load(CompoundTag pTag)
    {
-	  handler.deserializeNBT(pTag.getCompound("inventory"));
+	  itemHandler.deserializeNBT(pTag.getCompound("inventory"));
 	  progress = pTag.getInt("rolling_mill_station_block.progress");
 	  
 	  super.load(pTag);
@@ -161,26 +162,41 @@ public class RollingMillStationBlockEntity extends BlockEntity implements MenuPr
   }
 
   private void craftItem() {
-      ItemStack result = new ItemStack(ModItems.PLATE.get(), 1);
-      this.handler.extractItem(INPUT_SLOT, 1, false);
+	 Optional<PlateRollingRecipe> recipe = getCurrentRecipe();
+     ItemStack result = recipe.get().getResultItem(null);
 
-      this.handler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
-              this.handler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
-  }
+     this.itemHandler.extractItem(INPUT_SLOT, 1, false);
+
+     this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
+             this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
+ }
 
   private boolean hasRecipe() {
-      boolean hasCraftingItem = this.handler.getStackInSlot(INPUT_SLOT).getItem() == Items.IRON_INGOT;
-      ItemStack result = new ItemStack(ModItems.PLATE.get());
+     Optional<PlateRollingRecipe> recipe = getCurrentRecipe();
 
-      return hasCraftingItem && canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
-  }
+     if(recipe.isEmpty()) {
+         return false;
+     }
+     ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
+
+     return canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
+ }
+
+ private Optional<PlateRollingRecipe> getCurrentRecipe() {
+     SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+     for(int i = 0; i < itemHandler.getSlots(); i++) {
+         inventory.setItem(i, this.itemHandler.getStackInSlot(i));
+     }
+
+     return this.level.getRecipeManager().getRecipeFor(PlateRollingRecipe.Type.INSTANCE, inventory, level);
+ }
 
   private boolean canInsertItemIntoOutputSlot(Item item) {
-      return this.handler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.handler.getStackInSlot(OUTPUT_SLOT).is(item);
+      return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);
   }
 
   private boolean canInsertAmountIntoOutputSlot(int count) {
-      return this.handler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.handler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
+      return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
   }
 
   private boolean hasProgressFinished() {

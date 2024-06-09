@@ -23,8 +23,14 @@ import net.minecraftforge.network.NetworkHooks;
 
 public class RollingMillStationBlock extends BaseEntityBlock
 {
-   public static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 6, 15);
-
+   public static final VoxelShape SHAPE_WHOLE = Block.box(4.0D, 0.0D, 2.0D, 12.0D, 8.5D, 14.0D);
+   
+   
+   //example for multi Voxel shape
+   /*public static final VoxelShape SHAPE_BASE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
+   public static final VoxelShape SHAPE_POST = Block.box(4.0D, 2.0D, 4.0D, 12.0D, 14.0D, 12.0D);
+   public static final VoxelShape SHAPE_COMMON = Shapes.or(SHAPE_BASE, SHAPE_POST); */
+   
    public RollingMillStationBlock(Properties pProperties)
    {
 	  super(pProperties);
@@ -33,7 +39,8 @@ public class RollingMillStationBlock extends BaseEntityBlock
    @Override
    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext)
    {
-	  return SHAPE;
+	  return SHAPE_WHOLE;
+	  
    }
    
    @Override

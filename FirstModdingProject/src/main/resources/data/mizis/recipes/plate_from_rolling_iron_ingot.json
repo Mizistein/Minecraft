@@ -1,0 +1,12 @@
+{
+  "type": "mizis:plate_rolling",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "count": 3,
+    "item": "mizis:plate"
+  }
+}

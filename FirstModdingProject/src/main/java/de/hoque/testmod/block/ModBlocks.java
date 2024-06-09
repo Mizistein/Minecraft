@@ -39,7 +39,7 @@ public class ModBlocks
 			() -> new GhandalfBlock(BlockBehaviour.Properties.copy(Blocks.TNT)));
    
    public static final RegistryObject<Block> ROLLING_MILL_STATION_BLOCK = registerBlock("rolling_mill_station_block", 
-			() -> new RollingMillStationBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL).sound(SoundType.METAL)));
+			() -> new RollingMillStationBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL).sound(SoundType.METAL).noOcclusion()));
    
    
    
