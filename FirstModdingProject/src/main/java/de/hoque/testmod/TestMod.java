@@ -26,18 +26,21 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+
 import org.slf4j.Logger;
 
 @Mod(TestMod.MODID)
 public class TestMod
 {
    public static final String  MODID  = "mizis";
-   private static final Logger LOGGER = LogUtils.getLogger();
+   public static final Logger LOGGER = LogUtils.getLogger();
 
    public TestMod()
    {
 	  IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+	  
 	  ModCreativeModTabs.register(modEventBus);
 	  
 	  ModItems.register(modEventBus);
@@ -72,14 +75,18 @@ public class TestMod
    }
 
    @SubscribeEvent
-   public void onServerStarting(ServerStartingEvent event)
-   {
-	  LOGGER.info("DO SMTH AT SERVER START");
-	  
-      MinecraftServer server = event.getServer();
-      CommandSourceStack commandSourceStack = server.createCommandSourceStack();
-      server.getCommands().performPrefixedCommand(commandSourceStack , "op Dev");
-      
+   public void onServerStarting(ServerStartingEvent event) {
+       LOGGER.info("DO SMTH AT SERVER START");
+       
+       MinecraftServer server = event.getServer();
+       if (server.isDedicatedServer()) {
+           // This is a dedicated server
+           CommandSourceStack commandSourceStack = server.createCommandSourceStack();
+           server.getCommands().performPrefixedCommand(commandSourceStack, "op Dev");
+       } else {
+           // This is a singleplayer server
+           LOGGER.info("Singleplayer server, skipping op command");
+       }
    }
 
    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

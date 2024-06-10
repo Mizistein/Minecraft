@@ -90,21 +90,39 @@ public class PlateRollingRecipe implements Recipe<SimpleContainer>
 
        @Override
        public @Nullable PlateRollingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-           NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
+           int inputSize = pBuffer.readInt();
+           if (inputSize < 0) {
+               TestMod.LOGGER.error("Invalid input size in recipe network data: {}", inputSize);
+               return null;
+           }
 
-           for(int i = 0; i < inputs.size(); i++) {
-               inputs.set(i, Ingredient.fromNetwork(pBuffer));
+           NonNullList<Ingredient> inputs = NonNullList.withSize(inputSize, Ingredient.EMPTY);
+           for (int i = 0; i < inputSize; i++) {
+               Ingredient ingredient = Ingredient.fromNetwork(pBuffer);
+               if (ingredient == null) {
+                   TestMod.LOGGER.error("Invalid ingredient in recipe network data");
+                   return null;
+               }
+               inputs.set(i, ingredient);
            }
 
            ItemStack output = pBuffer.readItem();
+           if (output == null) {
+               TestMod.LOGGER.error("Invalid output item in recipe network data");
+               return null;
+           }
+
            return new PlateRollingRecipe(inputs, output, pRecipeId);
        }
 
        @Override
        public void toNetwork(FriendlyByteBuf pBuffer, PlateRollingRecipe pRecipe) {
            pBuffer.writeInt(pRecipe.inputItems.size());
-
-           for (Ingredient ingredient : pRecipe.getIngredients()) {
+           for (Ingredient ingredient : pRecipe.inputItems) {
+               if (ingredient == null) {
+                   TestMod.LOGGER.error("Null ingredient in recipe input list");
+                   return;
+               }
                ingredient.toNetwork(pBuffer);
            }
 
